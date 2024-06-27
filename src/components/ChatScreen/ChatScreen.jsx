@@ -49,7 +49,15 @@ function ChatScreen() {
   };
 
   return (
-    <div style={{ position: "relative", height: "600px", width: "500px" }}>
+    <div
+      id="chat-bot-container"
+      style={{
+        scrollBehavior: "smooth",
+        position: "relative",
+        height: "600px",
+        width: "1200px",
+      }}
+    >
       <MainContainer>
         <ChatContainer>
           <MessageList
