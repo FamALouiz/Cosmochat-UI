@@ -8,7 +8,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 import { useState } from "react";
-import SENDERS from "../../constants/Senders";
+import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
 
 function ChatScreen() {
@@ -18,7 +18,7 @@ function ChatScreen() {
   const [messages, setMesssges] = useState([
     {
       message: "Hello! I am your personal assistant... How can I help?",
-      sender: SENDERS.ChatGPT,
+      sender: ROLES.ChatGPT,
       direction: "incoming",
     },
   ]);
@@ -27,7 +27,7 @@ function ChatScreen() {
     // Update messages states with new message
     const newMessage = {
       message: message,
-      sender: SENDERS.User,
+      sender: ROLES.User,
       direction: "outgoing",
     };
 
@@ -40,7 +40,7 @@ function ChatScreen() {
     const aiResponse = await processMessageToChatGPT(newMessages);
     const aiMessage = {
       message: aiResponse,
-      sender: SENDERS.ChatGPT,
+      sender: ROLES.ChatGPT,
       direction: "incoming",
     };
 

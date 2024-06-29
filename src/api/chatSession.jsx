@@ -1,7 +1,10 @@
+import ROLES from "../constants/Roles";
+
 async function processMessageToChatGPT(messages) {
   const API_KEY = process.env.REACT_APP_OPEN_AI_KEY;
+  const API_URL = process.env.REACT_APP_API_URL;
   const systemMessage = {
-    role: "system",
+    role: ROLES.System,
     content: "Explain all concepts like I am a professional developer",
   };
 
@@ -18,7 +21,7 @@ async function processMessageToChatGPT(messages) {
   let aiResponse = null;
 
   // API call with message
-  await fetch("https://api.openai.com/v1/chat/completions", {
+  await fetch(API_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${API_KEY}`,
