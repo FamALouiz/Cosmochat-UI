@@ -7,23 +7,25 @@ import {
   MessageInput,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
 import mockSessions from "../../data/mockSessions";
+import { useLocation, useParams } from "react-router-dom";
 
-function ChatScreen({ sessionId }) {
+function ChatScreen() {
   const [typingStatus, setTypingStatus] = useState(false);
+  const { sessionId } = useParams();
 
   // Grabbing session from mock
-
   const session = mockSessions.filter(
-    (session) => session.sessionId === sessionId
+    (session) => session.sessionId == sessionId
   );
+
   // Initalize with default message
   const [messages, setMesssges] = useState(
-    session ? session[0].messages : mockSessions[0].messages
+    session.length > 0 ? session[0].messages : mockSessions[0].messages
   ); // If session was not found use first mock session
 
   const handleSend = async (message) => {
@@ -31,7 +33,7 @@ function ChatScreen({ sessionId }) {
     const newMessage = {
       message: message,
       sender: ROLES.User,
-      direction: "outgoing",
+      direction: CONV_DIRECTION.Outgoing,
     };
 
     const newMessages = [...messages, newMessage];
@@ -44,7 +46,7 @@ function ChatScreen({ sessionId }) {
     const aiMessage = {
       message: aiResponse,
       sender: ROLES.ChatGPT,
-      direction: "incoming",
+      direction: CONV_DIRECTION.Incoming,
     };
 
     setTypingStatus(false);

@@ -61,8 +61,7 @@ const mockSessions = [
         direction: CONV_DIRECTION.Outgoing,
       },
       {
-        message:
-          "I'm doing well, thank you! How about you? Working on any interesting projects lately?",
+        message: "What are you saying!!!!",
         sender: ROLES.ChatGPT,
         direction: CONV_DIRECTION.Incoming,
       },
