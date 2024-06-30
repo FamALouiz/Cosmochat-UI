@@ -7,12 +7,12 @@ import {
   MessageInput,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
 import mockSessions from "../../data/mockSessions";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function ChatScreen() {
   const [typingStatus, setTypingStatus] = useState(false);
@@ -20,7 +20,7 @@ function ChatScreen() {
 
   // Grabbing session from mock
   const session = mockSessions.filter(
-    (session) => session.sessionId == sessionId
+    (session) => session.sessionId === parseInt(sessionId)
   );
 
   // Initalize with default message
@@ -51,6 +51,9 @@ function ChatScreen() {
 
     setTypingStatus(false);
     setMesssges([...newMessages, aiMessage]);
+
+    // Updating messages in mock sessions storage
+    mockSessions[sessionId - 1].messages = [...newMessages, aiMessage];
   };
 
   return (
