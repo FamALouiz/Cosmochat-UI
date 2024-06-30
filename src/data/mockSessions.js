@@ -4,7 +4,7 @@ import CONV_DIRECTION from "../constants/ConversationDirection";
 const mockSessions = [
   {
     sessionId: 1,
-    startedAt: "2024-08-03",
+    startedAt: "2023-08-03",
     messages: [
       {
         message: "Hello! I am your personal assistant... How can I help?",
@@ -26,7 +26,7 @@ const mockSessions = [
   },
   {
     sessionId: 2,
-    startedAt: "2024-08-04",
+    startedAt: "2023-08-04",
     messages: [
       {
         message: "Hello! I am your personal assistant... How can I help?",
@@ -48,7 +48,7 @@ const mockSessions = [
   },
   {
     sessionId: 3,
-    startedAt: "2024-08-05",
+    startedAt: "2023-08-05",
     messages: [
       {
         message: "Hello! I am your personal assistant... How can I help?",
@@ -69,7 +69,7 @@ const mockSessions = [
   },
   {
     sessionId: 4,
-    startedAt: "2024-08-06",
+    startedAt: "2023-08-06",
     messages: [
       {
         message: "Hello! I am your personal assistant... How can I help?",
