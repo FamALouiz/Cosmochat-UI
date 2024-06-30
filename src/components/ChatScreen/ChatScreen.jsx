@@ -10,18 +10,21 @@ import {
 import { useState } from "react";
 import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
+import CONV_DIRECTION from "../../constants/ConversationDirection";
+import mockSessions from "../../data/mockSessions";
 
-function ChatScreen() {
+function ChatScreen({ startDate }) {
   const [typingStatus, setTypingStatus] = useState(false);
 
+  // Grabbing session from mock
+
+  const session = mockSessions.filter(
+    (session) => session.startedAt === startDate
+  );
   // Initalize with default message
-  const [messages, setMesssges] = useState([
-    {
-      message: "Hello! I am your personal assistant... How can I help?",
-      sender: ROLES.ChatGPT,
-      direction: "incoming",
-    },
-  ]);
+  const [messages, setMesssges] = useState(
+    session ? session[0].messages : mockSessions[0].messages
+  ); // If session was not found use first mock session
 
   const handleSend = async (message) => {
     // Update messages states with new message
@@ -49,16 +52,16 @@ function ChatScreen() {
   };
 
   return (
-    <div
-      id="chat-bot-container"
-      style={{
-        scrollBehavior: "smooth",
-        position: "relative",
-        height: "600px",
-        width: "1200px",
-      }}
-    >
-      <MainContainer>
+    <>
+      <MainContainer
+        id="chat-bot-container"
+        style={{
+          scrollBehavior: "smooth",
+          position: "relative",
+          height: "600px",
+          width: "1200px",
+        }}
+      >
         <ChatContainer>
           <MessageList
             typingIndicator={
@@ -72,7 +75,7 @@ function ChatScreen() {
           <MessageInput placeholder="Type message here" onSend={handleSend} />
         </ChatContainer>
       </MainContainer>
-    </div>
+    </>
   );
 }
 
