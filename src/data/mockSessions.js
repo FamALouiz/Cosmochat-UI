@@ -3,6 +3,7 @@ import CONV_DIRECTION from "../constants/ConversationDirection";
 
 const mockSessions = [
   {
+    sessionId: 1,
     startedAt: "2024-08-03",
     messages: [
       {
@@ -24,6 +25,7 @@ const mockSessions = [
     ],
   },
   {
+    sessionId: 2,
     startedAt: "2024-08-04",
     messages: [
       {
@@ -45,6 +47,7 @@ const mockSessions = [
     ],
   },
   {
+    sessionId: 3,
     startedAt: "2024-08-05",
     messages: [
       {
@@ -66,6 +69,7 @@ const mockSessions = [
     ],
   },
   {
+    sessionId: 4,
     startedAt: "2024-08-06",
     messages: [
       {

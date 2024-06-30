@@ -13,13 +13,13 @@ import processMessageToChatGPT from "../../api/chatSession";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
 import mockSessions from "../../data/mockSessions";
 
-function ChatScreen({ startDate }) {
+function ChatScreen({ sessionId }) {
   const [typingStatus, setTypingStatus] = useState(false);
 
   // Grabbing session from mock
 
   const session = mockSessions.filter(
-    (session) => session.startedAt === startDate
+    (session) => session.sessionId === sessionId
   );
   // Initalize with default message
   const [messages, setMesssges] = useState(
