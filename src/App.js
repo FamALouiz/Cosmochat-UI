@@ -26,7 +26,7 @@ function App() {
         <SideBarComponent />
         <Routes>
           <Route path="/:sessionId" Component={ReloadableChatScreen} />
-          <Route path="/user-info" Component={UserInformationScreen} />
+          <Route path="/user-info/:title" Component={UserInformationScreen} />
         </Routes>
       </div>
     </Router>
