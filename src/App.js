@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import ChatScreen from "./components/ChatScreen/ChatScreen";
 import SideBarComponent from "./components/Sidebar/SidebarComponent";
+import UserInformationScreen from "./components/UserInformationScreen/UserInformationScreen";
 
 function App() {
   // Forcing chat screen re-render upon re-routing
@@ -25,6 +26,7 @@ function App() {
         <SideBarComponent />
         <Routes>
           <Route path="/:sessionId" Component={ReloadableChatScreen} />
+          <Route path="/user-info" Component={UserInformationScreen} />
         </Routes>
       </div>
     </Router>

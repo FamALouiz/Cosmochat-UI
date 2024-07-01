@@ -51,6 +51,9 @@ function SideBarComponent() {
           <MenuItem>
             <FaBars onClick={handleCollapse} />
           </MenuItem>
+          <MenuItem component={<Link to={"/user-info"} />}>
+            User Information
+          </MenuItem>
           <SubMenu label="History">
             {mockSessions.map((session) => (
               <MenuItem component={<Link to={`/${session.sessionId}`} />}>
