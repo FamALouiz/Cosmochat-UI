@@ -63,8 +63,8 @@ function ChatScreen() {
         style={{
           scrollBehavior: "smooth",
           position: "relative",
-          height: "600px",
-          width: "1200px",
+          height: "705px",
+          width: "1800px",
         }}
       >
         <ChatContainer>
