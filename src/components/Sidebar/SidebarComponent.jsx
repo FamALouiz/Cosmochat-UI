@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import mockSessions from "../../data/mockSessions";
+import { mockSessions } from "../../data/mockSessions";
 import ROLES from "../../constants/Roles";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
 import CustomMenuItem from "../CustomMenuItem/CustomMenuItem";

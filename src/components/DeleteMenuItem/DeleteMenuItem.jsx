@@ -1,7 +1,17 @@
 import { useState } from "react";
+import { mockSessions } from "../../data/mockSessions";
 
-function DeleteMenuItem({ isHovering }) {
+function DeleteMenuItem({ isHovering, sessionId }) {
   const [isHoveringLocal, setIsHovering] = useState(false);
+
+  const handleDelete = () => {
+    let filteredSessions = mockSessions.filter(
+      (session) => session.sessionId !== sessionId
+    );
+
+    mockSessions = filteredSessions;
+  };
+
   return (
     (isHoveringLocal || isHovering) && (
       <div
@@ -21,6 +31,7 @@ function DeleteMenuItem({ isHovering }) {
             paddingLeft: "10px",
             paddingRight: "5px",
           }}
+          onClick={handleDelete}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >

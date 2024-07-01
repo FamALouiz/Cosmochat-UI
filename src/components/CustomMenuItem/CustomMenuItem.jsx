@@ -19,7 +19,7 @@ function CustomMenuItem({ component, text, sessionId }) {
       >
         {text}
       </MenuItem>
-      <DeleteMenuItem isHovering={isHovering} />
+      <DeleteMenuItem isHovering={isHovering} sessionId={sessionId} />
     </div>
   );
 }

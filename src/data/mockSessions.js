@@ -1,7 +1,7 @@
 import ROLES from "../constants/Roles";
 import CONV_DIRECTION from "../constants/ConversationDirection";
 
-const mockSessions = [
+let mockSessions = [
   {
     sessionId: 1,
     startedAt: "2023-08-03",
@@ -88,5 +88,4 @@ const mockSessions = [
     ],
   },
 ];
-
-export default mockSessions;
+export { mockSessions };

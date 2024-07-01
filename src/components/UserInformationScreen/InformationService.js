@@ -1,5 +1,5 @@
 import CONV_DIRECTION from "../../constants/ConversationDirection";
-import mockSessions from "../../data/mockSessions";
+import { mockSessions } from "../../data/mockSessions";
 
 function getMessagesSent() {
   // Getting unique dates

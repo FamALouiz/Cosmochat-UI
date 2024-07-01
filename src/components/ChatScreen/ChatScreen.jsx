@@ -11,7 +11,7 @@ import { useState } from "react";
 import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
-import mockSessions from "../../data/mockSessions";
+import { mockSessions } from "../../data/mockSessions";
 import { useParams } from "react-router-dom";
 
 function ChatScreen() {
