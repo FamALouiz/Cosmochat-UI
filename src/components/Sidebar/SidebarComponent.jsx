@@ -51,7 +51,7 @@ function SideBarComponent() {
           <MenuItem>
             <FaBars onClick={handleCollapse} />
           </MenuItem>
-          <MenuItem>Dashboard</MenuItem>
+          <MenuItem component={<Link to="/dashboard" />}>Dashboard</MenuItem>
           <SubMenu label="User Information">
             <MenuItem component={<Link to={"/user-info/messages-sent"} />}>
               Messages Sent
