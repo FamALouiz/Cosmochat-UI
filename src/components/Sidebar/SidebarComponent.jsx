@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import mockSessions from "../../data/mockSessions";
 import ROLES from "../../constants/Roles";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
+import CustomMenuItem from "../CustomMenuItem/CustomMenuItem";
 
 function SideBarComponent() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -59,9 +60,11 @@ function SideBarComponent() {
           </SubMenu>
           <SubMenu label="History">
             {mockSessions.map((session) => (
-              <MenuItem component={<Link to={`/${session.sessionId}`} />}>
-                {session.startedAt}
-              </MenuItem>
+              <CustomMenuItem
+                component={<Link to={`/${session.sessionId}`} />}
+                text={session.startedAt}
+                sessionId={session.sessionId}
+              />
             ))}
           </SubMenu>
           <MenuItem onClick={handleNewSession}> New Session </MenuItem>
