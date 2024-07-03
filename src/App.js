@@ -4,10 +4,10 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import ChatScreen from "./components/ChatScreen/ChatScreen";
+import ChatScreen from "./screens/ChatScreen/ChatScreen";
 import SideBarComponent from "./components/Sidebar/SidebarComponent";
 import UserInformationScreen from "./components/UserInformationScreen/UserInformationScreen";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./screens/Dashboard/Dashboard";
 import { mockSessions } from "./data/mockSessions";
 import { useState } from "react";
 
