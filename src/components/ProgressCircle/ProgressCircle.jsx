@@ -1,20 +1,23 @@
-import { Box, useTheme } from "@mui/material";
+import { GREEN, RED } from "../../constants/Colors";
 
-function ProgressCircle({ progress = 0.75, size = 40 }) {
-  const theme = useTheme();
-  const angle = progress * 360;
+function ProgressCircle({ progress = 0.75 }) {
+  //   const angle = progress * 360;
 
   return (
-    <Box
-      sx={{
-        background: `radial-gradient(red 55%, transparent 56%)
-        conic-gradient(transparent 0deg ${angle}deg, blue ${angle}deg 360),
-        green`,
-        borderRadius: "50%",
-        width: `${size}px`,
-        height: `${size}px`,
-      }}
-    />
+    <svg
+      width={`${40}px`}
+      height={`${40}px`}
+      strokeDasharray={`${Math.abs(progress) * 100}, 100`}
+    >
+      <circle
+        stroke={parseFloat(progress) > 0 ? GREEN : RED}
+        stroke-width="4"
+        fill="transparent"
+        r="15"
+        cx="17"
+        cy="20"
+      />
+    </svg>
   );
 }
 
