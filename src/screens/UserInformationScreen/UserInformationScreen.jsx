@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import LineGraph from "../LineGraph/LineGraph";
+import LineGraph from "../../components/LineGraph/LineGraph";
 import getMessagesSent from "./InformationService";
 
 function UserInformationScreen({ sessions }) {
