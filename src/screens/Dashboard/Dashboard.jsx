@@ -5,7 +5,13 @@ import mockGraphData from "../../data/mockGraphData";
 
 function Dashboard() {
   return (
-    <Box padding="10px" width="1350px" display="flex" flexDirection="column">
+    <Box
+      padding="10px"
+      width="1350px"
+      display="flex"
+      flexDirection="column"
+      height={"70vh"}
+    >
       <Box display="flex" justifyContent="space-around">
         <StatBox
           title="Messages"
@@ -26,6 +32,11 @@ function Dashboard() {
           progress={-0.7}
           subtitle={100}
         />
+      </Box>
+      <Box>
+        <h3 style={{ marginLeft: "20px", marginBottom: "0px" }}>
+          Last year's messages
+        </h3>
       </Box>
       <LineGraph data={mockGraphData} />
     </Box>

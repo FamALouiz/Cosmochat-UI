@@ -27,6 +27,7 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "flex-start",
+          height: "100vh",
         }}
       >
         <SideBarComponent sessions={sessions} setSessions={setSessions} />
