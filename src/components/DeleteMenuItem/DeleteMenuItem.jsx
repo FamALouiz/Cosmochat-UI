@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { mockSessions } from "../../data/mockSessions";
 
-function DeleteMenuItem({ isHovering, sessionId }) {
+function DeleteMenuItem({ isHovering, sessionId, sessions, setSessions }) {
   const [isHoveringLocal, setIsHovering] = useState(false);
 
   const handleDelete = () => {
-    let filteredSessions = mockSessions.filter(
+    const filteredSessions = sessions.filter(
       (session) => session.sessionId !== sessionId
     );
 
-    mockSessions = filteredSessions;
+    setSessions(filteredSessions);
   };
 
   return (
@@ -21,7 +20,10 @@ function DeleteMenuItem({ isHovering, sessionId }) {
         onMouseLeave={() => {
           setIsHovering(false);
         }}
-        style={{ backgroundColor: "#f2f2f2" }}
+        style={{
+          backgroundColor: "#f2f2f2",
+          cursor: isHoveringLocal ? "pointer" : "default",
+        }}
       >
         <svg
           style={{

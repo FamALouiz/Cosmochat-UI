@@ -11,21 +11,24 @@ import { useState } from "react";
 import ROLES from "../../constants/Roles";
 import processMessageToChatGPT from "../../api/chatSession";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
-import { mockSessions } from "../../data/mockSessions";
 import { useParams } from "react-router-dom";
 
-function ChatScreen() {
+function ChatScreen({ sessions }) {
   const [typingStatus, setTypingStatus] = useState(false);
   const { sessionId } = useParams();
 
   // Grabbing session from mock
-  const session = mockSessions.filter(
+  const session = sessions.filter(
     (session) => session.sessionId === parseInt(sessionId)
   );
 
   // Initalize with default message
   const [messages, setMesssges] = useState(
-    session.length > 0 ? session[0].messages : mockSessions[0].messages
+    session.length > 0
+      ? session[0].messages
+      : sessions[0]
+      ? sessions[0].messages
+      : []
   ); // If session was not found use first mock session
 
   const handleSend = async (message) => {
@@ -53,7 +56,7 @@ function ChatScreen() {
     setMesssges([...newMessages, aiMessage]);
 
     // Updating messages in mock sessions storage
-    mockSessions[sessionId - 1].messages = [...newMessages, aiMessage];
+    sessions[sessionId - 1].messages = [...newMessages, aiMessage];
   };
 
   return (

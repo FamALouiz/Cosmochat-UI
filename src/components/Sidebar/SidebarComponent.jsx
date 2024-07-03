@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { mockSessions } from "../../data/mockSessions";
 import ROLES from "../../constants/Roles";
 import CONV_DIRECTION from "../../constants/ConversationDirection";
 import CustomMenuItem from "../CustomMenuItem/CustomMenuItem";
 
-function SideBarComponent() {
+function SideBarComponent({ sessions, setSessions }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [reload, setReload] = useState(false);
 
@@ -20,8 +19,12 @@ function SideBarComponent() {
 
   const handleNewSession = () => {
     // Extracting session id
-    const prevSessionId = mockSessions[mockSessions.length - 1].sessionId;
-
+    let prevSessionId;
+    try {
+      prevSessionId = sessions[sessions.length - 1].sessionId;
+    } catch (error) {
+      prevSessionId = 0;
+    }
     // Getting today's date
     const today = new Date();
     const year = today.getFullYear();
@@ -41,7 +44,7 @@ function SideBarComponent() {
       ],
     };
 
-    mockSessions.push(newSession);
+    setSessions((prevSessions) => [...prevSessions, newSession]);
     setReload(true);
   };
 
@@ -59,11 +62,13 @@ function SideBarComponent() {
             </MenuItem>
           </SubMenu>
           <SubMenu label="History">
-            {mockSessions.map((session) => (
+            {sessions.map((session) => (
               <CustomMenuItem
                 component={<Link to={`/${session.sessionId}`} />}
                 text={session.startedAt}
                 sessionId={session.sessionId}
+                sessions={sessions}
+                setSessions={setSessions}
               />
             ))}
           </SubMenu>

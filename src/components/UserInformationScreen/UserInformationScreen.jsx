@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import LineGraph from "../LineGraph/LineGraph";
 import getMessagesSent from "./InformationService";
 
-function UserInformationScreen() {
+function UserInformationScreen({ sessions }) {
   const { title } = useParams();
 
   // Cleaning title up
@@ -15,7 +15,7 @@ function UserInformationScreen() {
   let data;
   switch (title) {
     case "messages-sent":
-      data = getMessagesSent();
+      data = getMessagesSent(sessions);
       break;
     default:
       data = null;

@@ -2,7 +2,7 @@ import { MenuItem } from "react-pro-sidebar";
 import DeleteMenuItem from "../DeleteMenuItem/DeleteMenuItem";
 import { useState } from "react";
 
-function CustomMenuItem({ component, text, sessionId }) {
+function CustomMenuItem({ component, text, sessionId, sessions, setSessions }) {
   const [isHovering, setIsHovering] = useState(false);
   return (
     <div
@@ -19,7 +19,12 @@ function CustomMenuItem({ component, text, sessionId }) {
       >
         {text}
       </MenuItem>
-      <DeleteMenuItem isHovering={isHovering} sessionId={sessionId} />
+      <DeleteMenuItem
+        isHovering={isHovering}
+        sessionId={sessionId}
+        sessions={sessions}
+        setSessions={setSessions}
+      />
     </div>
   );
 }

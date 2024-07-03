@@ -1,12 +1,11 @@
 import CONV_DIRECTION from "../../constants/ConversationDirection";
-import { mockSessions } from "../../data/mockSessions";
 
-function getMessagesSent() {
+function getMessagesSent(sessions) {
   // Getting unique dates
-  const dates = [...new Set(mockSessions.map((session) => session.startedAt))];
+  const dates = [...new Set(sessions.map((session) => session.startedAt))];
 
   const grouppedMessageByDate = dates.map((date) => {
-    const filteredSessions = mockSessions.filter(
+    const filteredSessions = sessions.filter(
       (session) => session.startedAt === date
     );
 
