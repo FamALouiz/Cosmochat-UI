@@ -39,32 +39,97 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Installation and Running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```sh
+   git clone https://github.com/your-username/cosmochat-ui.git
+   cd cosmochat-ui
+   ```
 
-### Code Splitting
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running the App
 
-### Analyzing the Bundle Size
+To run the app in development mode use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+npm start
+```
 
-### Making a Progressive Web App
+This will automatically open the default browser to http://localhost:3000 to view the website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Navigating the website
 
-### Advanced Configuration
+It is composed of the following screens:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Dashboard Screen:
 
-### Deployment
+   - Contains a brief mock overview of all the user's statistics
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. User Information Screen:
 
-### `npm run build` fails to minify
+   - A dynamic screen that can isolate one user statistics for clearer and better understanding.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Chat Screen with Session History:
+   - A user can manage through their history, creating or deleting as they wish. Old sessions could additionally be re-opened and continued on.
+
+## Project Structure
+
+The main directories and files are:
+
+- `src/`: Contains the source code
+  - `api/`:
+    - Contains the files that interact with the api
+  - `componenets/`:
+    - Contains the components that were used
+  - `constants/`:
+    - Contains global constants for ease of tracking
+  - `data/`:
+    - Contains mock data usde in the app
+  - `screens/`:
+    - Contains the screens of the app
+  - `App.jsx`
+  - `index.js`
+
+## Components
+
+### CustomMenuItem
+
+- File: `src/componenets/CustomMenuItem/CustomMenuItem.jsx`
+- Description: A customer sidebar menu item that adds the delete item feature
+
+### DeleteMenuItem
+
+- File: `src/componenets/DeleteMenuItem/DeleteMenuItem.jsx`
+- Description: Delete button used in the custom menu item
+
+### LineGraph
+
+- File: `src/components/LineGraph/LineGraph.jsx`
+- Description: Dynamic line graph used for representing data
+
+### ProgressCircle
+
+- File: `src/components/ProgressCircle/ProgressCircle.jsx`
+- Description: Custom progress circle that allows for a visual way to represent completion
+
+### SideBar
+
+- File: `src/components/SideBar/SideBar.jsx`
+- Description: Static side bar
+
+### StatBox
+
+- File: `src/components/StatBox/StatBox.jsx`
+- Description: Stat-box used for representing data
+
+## Constants
+
+- `Colors.js`: Contains the used colors
+- `ConversationDirection.js`: Enumeration of the two different conversation directions
+- `Roles.js`: Different roles for chat bot
